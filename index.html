@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Steam Group Search</title>
+  <meta charset="UTF-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="search-container">
+      <form class="search-form">
+        <input type="text" id="search-bar" placeholder="search query">
+        <div class="radio-buttons">
+          <label for="contains">
+            <input type="radio" id="contains" name="search-type" value="contains" checked>
+            contains query
+          </label>
+          <label for="strictly">
+            <input type="radio" id="strictly" name="search-type" value="strict">
+            strictly query
+          </label>
+        </div>
+        <div class="search-buttons">
+          <button type="button" id="searchbyname">search by name</button>
+          <button type="button" id="searchbytag">search by tag</button>
+        </div>
+        <div class="cogwheel-container">
+          <button class="cogwheel-button" id="cogwheel-button" type="button">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <div class="menu" id="menu">
+            <form>
+              <div class="dropdown-row">
+                <div class="dropdown">
+                  <label for="language">language:</label>
+                  <select id="language" name="language">
+                    <option value="any">any</option>
+                    <option value="english">english</option>
+                    <option value="chinese">chinese</option>
+                    <option value="korean">korean</option>
+                    <option value="japanese">japanese</option>
+                    <option value="arabic">arabic</option>
+                    <option value="hindi">hindi</option>
+                    <option value="russian">russian</option>
+                    <option value="numbers">numbers</option>
+                  </select>
+                </div>
+                <div class="dropdown">
+                  <label for="length">length:</label>
+                  <select id="length" name="length">
+                    <option value="any">any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                  </select>
+                </div>
+              </div>
+              <div class="date-row">
+                <div class="date-selection">
+                  <label for="start-date">start date:</label>
+                  <input type="date" id="start-date" name="start-date" min="2007-08-01">
+                </div>
+                <div class="date-selection">
+                  <label for="end-date">end date:</label>
+                  <input type="date" id="end-date" name="end-date" min="2007-08-01">
+                </div>
+              </div>
+              <div class="checkbox-row">
+                <div class="checkbox-container">
+                  <input type="checkbox" id="matching-checkbox">
+                  <label for="matching-checkbox">matching</label>
+                </div>
+              </div>
+              <button type="button" id="apply">apply</button>
+            </form>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="results-container" class="results-container"></div>
+    <div id="pagination-container" class="pagination-container"></div>
+    <div id="to-container" class="to-container"></div>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,334 @@
+/* CSS styles */
+body {
+  background-color: #404040;
+  height: 100vh;
+  overflow: auto;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 300;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.search-container {
+  margin-top: 40vh;
+  background-color: #404040;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#search-bar {
+  border-radius: 10px;
+  width: 90;
+  height: 35px;
+  padding: 5px 10px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid grey;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 300;
+}
+
+.radio-buttons {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#contains {
+  margin-left: 23px
+}
+
+#strictly {
+  margin-right: 3px
+}
+
+.radio-buttons label {
+  display: flex;
+  margin-right: 29px;
+  color: white;
+}
+
+.radio-buttons input[type="radio"] {
+  margin: 0 5px;
+}
+
+.search-buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.search-buttons button {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 300;
+  margin: 0 5px;
+  border-radius: 7px;
+  border: 1px rgb(105, 105, 105);
+  height: 30px;
+  background-color: #606060;
+  color: white;
+  width: calc(50% - 5px);
+  cursor: pointer;
+}
+
+.search-buttons button:hover {
+  background-color: #737373;
+}
+
+.cogwheel-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px; /* Adjusted margin to create space underneath search buttons */
+  position: relative; /* Added position relative */
+}
+
+.cogwheel-button {
+  font-size: 24px;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+}
+
+.cogwheel-button i {
+  transition: transform 0.3s ease;
+}
+
+.cogwheel-button:hover i {
+  transform: rotate(-90deg); /* Rotate on hover */
+}
+
+.menu {
+  position: absolute; /* Added position absolute */
+  top: calc(100% + 12px); /* Added top position to position the menu below the cogwheel */
+  left: 50%; /* Added left position to center the menu horizontally */
+  transform: translateX(-50%) scale(0); /* Initially hidden and scaled down */
+  transform-origin: top center; /* Set transform origin */
+  background-color: #606060;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Transition for transform and opacity */
+  width: 250px;
+}
+
+.menu-active {
+  transform: translateX(-50%) scale(1); /* Active state, scale up the menu */
+  opacity: 1; /* Active state, fully visible */
+}
+
+.dropdown-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.dropdown label {
+  display: block;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.dropdown select {
+  width: 95%;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+}
+
+.date-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-selection {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.date-selection label {
+  display: block;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.date-selection input {
+  width: 91%;
+  height:25px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 5px;
+}
+
+.checkbox-row {
+  display: flex;
+  justify-content: center; /* Center the checkbox horizontally */
+  align-items: center;
+  margin-top: 5px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-bottom: 10px; /* Add margin to create space between the checkbox and the "Apply" button */
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-bottom: 5px;
+}
+
+#apply {
+  background-color: #828282;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 300;
+}
+
+#apply:hover {
+  background-color: #969696;
+}
+
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.result {
+  padding: 10px;
+  margin: 10px;
+  width: 29vw;
+  background-color: #c9c9c9;
+  border-radius: 5px;
+  border: 1px #606060;
+  color: black;
+}
+
+.results-container:last-child .result {
+  margin-left: auto; /* Ensures last result is centered */
+  margin-right: auto;
+}
+
+.pagination-button {
+  font-size: 16px;
+  background-color: #606060;
+  display: inline-block;
+  margin: 8px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 6px;
+}
+
+.pagination-button:hover {
+  background-color: #737373;
+}
+
+.active {
+  border: 1px solid white; /* Current page gets highlighted with a border */
+  border-radius: 5px;
+}
+
+.to-container {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.to-button {
+  background: transparent;
+  font-size: 16px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.to-button i {
+  transition: transform 0.3s ease;
+}
+
+.to-button:hover i {
+  transform: scale(1.4); /* Slightly increase in size on hover */
+}
+
+.to-menu {
+  position: absolute; /* Added position absolute */
+  bottom: calc(60px); /* Added bottom position to position the menu above the to icon*/
+  left: 50%; /* Added left position to center the menu horizontally */
+  transform: translateX(-50%) scale(0); /* Initially hidden and scaled down */
+  transform-origin: bottom center;
+  background-color: #737373;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  opacity: 0; /* Initially hidden */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Transition for transform and opacity */
+  width: 110px;
+  display: inline-block;
+}
+
+.to-menu-active {
+  transform: translateX(-50%) scale(1); /* Active state, scale up the menu */
+  opacity: 1; /* Active state, fully visible */
+}
+
+.to-bar {
+  width: 70px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 300;
+}
+
+.to-go {
+  background-color: #969696;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-left: 3px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 300;
+}
+
+.to-go:hover {
+  background-color: #adadad;
+}
