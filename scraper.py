@@ -9,7 +9,9 @@ with open("groups.csv", "r", encoding='utf-8') as file1:
 file = open("groups.csv", "a", newline="", encoding='utf-8')
 writer = csv.writer(file)
 
-for i in range(int(last) + 1, 2000001):
+stop = 10000001
+
+for i in range(int(last) + 1, stop):
     # requesting webpage
     page_to_scrape = requests.get("https://steamcommunity.com/gid/" + str(i))
     print(i)

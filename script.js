@@ -204,6 +204,7 @@
   // Creating pagination buttons
   function paginationCreation(results) {
     var paginationContainer = document.getElementById("pagination-container");
+    var menu = document.getElementById("menu");
     var toContainer = document.getElementById("to-container");
     var totalPages = Math.ceil(results.length / maxPerPage)
     if (totalPages > 1) {
@@ -222,8 +223,9 @@
       firstButton.onclick = function() {
         if (currentPage !== 1) {
           currentPage = 1
-          displayResults(results)
+          menu.classList.remove("menu-active")
           window.scrollTo(0, 0);
+          displayResults(results)
         }
       }
       paginationContainer.appendChild(firstButton)
@@ -241,14 +243,13 @@
             lower--;
             upper--;
             currentPage--;
-            displayResults(results);
-            window.scrollTo(0,0);
           } else {
             currentPage--;
-            displayResults(results)
-            window.scrollTo(0,0)
           }
         }
+        menu.classList.remove("menu-active")
+        window.scrollTo(0,0)
+        displayResults(results)
       }
       paginationContainer.appendChild(prevButton)
 
@@ -263,8 +264,9 @@
         pageButton.onclick = (function(pageNumber) {
           return function() {
             currentPage = pageNumber;
-            displayResults(results);
+            menu.classList.remove("menu-active")
             window.scrollTo(0, 0);
+            displayResults(results);
           }
         })(i);
         paginationContainer.appendChild(pageButton);
@@ -283,14 +285,13 @@
             lower++;
             upper++;
             currentPage++;
-            displayResults(results);
-            window.scrollTo(0,0);
           } else {
             currentPage++;
-            displayResults(results)
-            window.scrollTo(0,0)
           }
         }
+        menu.classList.remove("menu-active")
+        window.scrollTo(0,0)
+        displayResults(results)
       }
       paginationContainer.appendChild(nextButton)
 
@@ -306,8 +307,9 @@
           currentPage = totalPages;
           upper = totalPages;
           lower = Math.max(1, totalPages - 4);
-          displayResults(results)
+          menu.classList.remove("menu-active")
           window.scrollTo(0, 0);
+          displayResults(results)
         }
       }
       paginationContainer.appendChild(lastButton)
@@ -346,28 +348,31 @@
         if (isNaN(pageNumber) || pageNumber <= 0 || pageNumber > totalPages) { // Do nothing if invalid input
           return;
         } else if (!isNaN(pageNumber) && pageNumber <= 3) {
-          window.scrollTo(0, 0);
-          var menu = document.getElementById("to-menu");
-          menu.classList.toggle("to-menu-active");
+          var toMenu = document.getElementById("to-menu");
+          toMenu.classList.toggle("to-menu-active");
           currentPage = pageNumber;
           lower = 1;
           upper = Math.min(upper, 5)
+          menu.classList.remove("menu-active")
+          window.scrollTo(0, 0);
           displayResults(results);
         } else if (!isNaN(pageNumber) && pageNumber >= 3 && pageNumber <= totalPages-2) {
-          window.scrollTo(0, 0);
-          var menu = document.getElementById("to-menu");
-          menu.classList.toggle("to-menu-active");
+          var toMenu = document.getElementById("to-menu");
+          toMenu.classList.toggle("to-menu-active");
           currentPage = pageNumber;
           lower = pageNumber-2;
           upper = pageNumber+2
+          menu.classList.remove("menu-active")
+          window.scrollTo(0, 0);
           displayResults(results);
         } else if (!isNaN(pageNumber) && pageNumber >= totalPages-2) {
-          window.scrollTo(0, 0);
-          var menu = document.getElementById("to-menu");
-          menu.classList.toggle("to-menu-active");
+          var toMenu = document.getElementById("to-menu");
+          toMenu.classList.toggle("to-menu-active");
           currentPage = pageNumber;
           lower = Math.min(totalPages-4, currentPage-2);
           upper = totalPages;
+          menu.classList.remove("menu-active")
+          window.scrollTo(0, 0);
           displayResults(results);
         }
       }

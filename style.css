@@ -289,7 +289,7 @@ a {
 
 .to-menu {
   position: absolute; /* Added position absolute */
-  bottom: calc(60px); /* Added bottom position to position the menu above the to icon*/
+  bottom: calc(59px); /* Added bottom position to position the menu above the to icon*/
   left: 50%; /* Added left position to center the menu horizontally */
   transform: translateX(-50%) scale(0); /* Initially hidden and scaled down */
   transform-origin: bottom center;
